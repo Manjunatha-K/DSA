@@ -1,4 +1,4 @@
-package com.logic.DSA.Arrays.Better;
+package com.logic.DSA.Arrays.Brute;
 
 public class MovingZerostoEnd {
 }
