@@ -3,7 +3,7 @@ package com.logic.DSA.Sorting;
 public class SelectionSort {
     private static void sort(int[] arr) {
         int n = arr.length;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n-1; i++) {
             for (int j = i+1; j < n; j++) {
                 if (arr[i] > arr[j]) {
                     int temp = arr[i];
@@ -12,7 +12,7 @@ public class SelectionSort {
                 }
             }
         }
-        System.out.println("THE ARRAY AFTER SORTING IS : ");
+        System.out.println("THE ARRAY AFTER SORTING IS : SELECTION SORT");
 
         for(int i = 0; i < n; i++) {
             System.out.println(arr[i]);
