@@ -7,8 +7,8 @@ public class IntersectionOf2SortedArrays {
 
     public static void main(String[] args) {
 
-        int a[] = {1, 2, 4, 6, 7, 8};
-        int b[] = {2, 3, 5, 7, 9, 10, 11, 12, 13, 14};
+        int a[] = {1, 2, 2,4, 6, 7, 8};
+        int b[] = {2,2, 3, 5, 7, 9, 10, 11, 12, 13, 14};
         intersectionOfArray(a,b);
 
     }
