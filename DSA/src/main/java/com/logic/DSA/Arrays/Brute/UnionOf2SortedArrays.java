@@ -6,7 +6,6 @@ public class UnionOf2SortedArrays {
 
     public static void union(int[] arr1,int[] arr2){
 
-        List<Integer> res = new ArrayList<>();
         Set<Integer> unionSet = new HashSet<>();
         for(int i =0;i<arr1.length;i++)
             unionSet.add(arr1[i]);
@@ -14,12 +13,11 @@ public class UnionOf2SortedArrays {
             unionSet.add(arr2[i]);
 
         Iterator<Integer> it = unionSet.iterator();
-        while(it.hasNext()){
-           res.add(it.next());
-        }
         System.out.println("UNION OF TWO SORTED LISTS ARE :");
-        for(Integer x : res)
-            System.out.println(x);
+        while(it.hasNext()){
+            System.out.println(it.next());
+        }
+
     }
 
     public static void main(String[] args){

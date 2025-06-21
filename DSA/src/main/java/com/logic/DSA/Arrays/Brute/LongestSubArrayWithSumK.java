@@ -20,7 +20,8 @@ public class LongestSubArrayWithSumK {
                   longest = Math.max(longest,j-i+1);
                 }
             }
-            System.out.println("LONGEST SUBARRAY WITH SUM : "+k+" IS : "+longest);
+
         }
+        System.out.println("LONGEST SUBARRAY WITH SUM : "+k+" IS : "+longest);
     }
 }
