@@ -1,26 +1,28 @@
 package com.logic.DSA.Arrays.Better;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSum {
-    public static void main(String[] args) {
-        int[] arr = {1,7,2,6,3,8,4,5,9,0};
-        int target = 20;
-        Arrays.sort(arr);
-        int i =0;
-        int n = arr.length-1;
-        while(i<n){
-            if(arr[i]+arr[n] ==target) {
-                System.out.println("THE TWO SUM IS : " + arr[i] + "--" + arr[n]);
+    private static void twoSumHashing(int[] arr, int target){
+        Map<Integer, Integer> res = new HashMap<>();
+        int sum = 0;
+        for(int i =0;i<arr.length;i++){
+            sum  =arr[i];
+            int rem = target - sum;
+            if(res.containsKey(rem)){
+                System.out.println("YES");
                 return;
             }
-            else if(arr[i]+arr[n] >target)
-                n--;
-            else
-                i++;
+            res.put(sum,i);
         }
+        System.out.println("NO");
 
-        System.out.println("NO TWO SUM");
-
+    }
+    public static void main(String[] args) {
+        int[] arr = {1, 7, 2, 6, 3, 8, 4, 5, 9, 0};
+        int target = 17;
+        twoSumHashing(arr,target);
     }
 }
