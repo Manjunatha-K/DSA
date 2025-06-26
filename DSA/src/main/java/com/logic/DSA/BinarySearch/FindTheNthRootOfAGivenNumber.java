@@ -18,7 +18,7 @@ public class FindTheNthRootOfAGivenNumber {
                 return;
             }
         }
-        System.out.println("No Nth Root");
+        System.out.println("No Nth Root ");
     }
 
     private static Integer findRoot(int root,int mid, int num) {
