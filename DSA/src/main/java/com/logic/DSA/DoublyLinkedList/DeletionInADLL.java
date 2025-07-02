@@ -1,8 +1,6 @@
 package com.logic.DSA.DoublyLinkedList;
 
-import com.logic.DSA.DoublyLinkedList.Node;
-
-public class InsertElementInADoublyLinkedList {
+public class DeletionInADLL {
     private static Node DoublylinkedListImpl(int[] arr) {
         Node head = new Node(arr[0],null,null);
         Node temp = head;
@@ -23,11 +21,10 @@ public class InsertElementInADoublyLinkedList {
     }
     public static void main(String[] args) {
         int[] arr = {0,1,2,3,4,5,6,7,8,9,10};
-        int ele = 24;
         int index = 10;
-       Node head = DoublylinkedListImpl(arr);
-       Node updatedHead = insertElement(head,ele,index);
-        System.out.println("After Insertion");
+        Node head = DoublylinkedListImpl(arr);
+        Node updatedHead = deleteElement(head,index);
+        System.out.println("After Deletion");
         Node temp = updatedHead;
         Node reverseTemp = null;
         while (temp!= null){
@@ -42,33 +39,43 @@ public class InsertElementInADoublyLinkedList {
         }
     }
 
-    private static Node insertElement(Node head, int ele, int index) {
+    private static Node deleteElement(Node head, int index) {
         int len = findLength(head);
         if(index>len){
             System.out.println("Invalid Index!!! Please try again");
             return head;
         }else if(head == null && index ==0){
-            head = new Node(ele,null,null);
             return head;
         }else if(head != null && index ==0){
-            Node newHead = new Node(ele,null,head);
-            head.previous = newHead;
-            return newHead;
+            head = head.next;
+            head.previous = null;
+            return head;
+        }else if(len == index || len-1 == index){
+            Node temp = head;
+            Node previous = null;
+            while(temp.next!= null){
+                previous = temp;
+                temp = temp.next;
+            }
+            previous.next = null;
+            temp.previous = null;
+            return head;
         }else{
             int counter =-1;
             Node temp = head;
             Node previous = null;
             while(temp!= null){
                 counter++;
-                previous = temp;
+                 previous = temp;
                 temp = temp.next;
                 if(counter == index-1){
                     break;
                 }
             }
-            Node newNode = new Node(ele,previous,temp);
-            previous.next = newNode;
-            temp.previous= newNode;
+            temp.previous = null;
+            previous.next = temp.next;
+            temp.next = null;
+            previous.next.previous = previous;
             return head;
         }
     }
