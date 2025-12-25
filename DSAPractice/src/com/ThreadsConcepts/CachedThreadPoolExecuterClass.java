@@ -17,6 +17,7 @@ public class CachedThreadPoolExecuterClass {
                     }
                 });
             }
+            executorService.shutdown();
         }
     }
 }

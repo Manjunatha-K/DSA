@@ -16,6 +16,7 @@ public class ProducerAndConsumer {
                     System.out.println("Adding value to queue : "+ counter);
                     queue.add(counter);
                     counter++;
+                    lock.notify();
                 } else {
                     System.out.println("Queue is full, moving to consumer");
                     lock.wait();
@@ -33,6 +34,7 @@ public class ProducerAndConsumer {
                 } else {
                     System.out.println("removing from queue :"+ counter);
                     queue.remove(--counter);
+                    lock.notify();
                     //counter--;
                 }
             }

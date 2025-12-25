@@ -29,7 +29,7 @@ class Node {
 
 public class TraversalLinkedList {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 5, 4, 3, 2, 1};
+        int[] arr = {1,0,2,0,0,0,1,1,1,1};
         Node head = convertArrayToList(arr);
         /*
         Node head = new Node(1);
@@ -70,6 +70,7 @@ public class TraversalLinkedList {
         // removeNthNodeFromEnd(head, 10);
         //deleteMiddleNode(head);
         findPalindrome(head);
+        sort012(head);
 
         Node start = findStartingPointOfLoop(head);
         if (start != null)
@@ -88,6 +89,36 @@ public class TraversalLinkedList {
             System.out.println("OPTIMAL NO LOOP");
         }
 
+    }
+
+    private static void sort012(Node head) {
+        Node zeroHead = new Node(-1);
+        Node oneHead = new Node(-1);
+        Node twoNode = new Node(-1);
+        Node zero = zeroHead;
+        Node one = oneHead;
+        Node two = twoNode;
+        Node temp = head;
+        while(temp != null){
+            if(temp.data == 0){
+                zero.next = temp;
+                zero = zero.next;
+                temp = temp.next;
+            }else if(temp.data == 1){
+                one.next = temp;
+                one = one.next;
+                temp = temp.next;
+            }else{
+                two.next = temp;
+                two = two.next;
+                temp = temp.next;
+            }
+        }
+        zero.next = oneHead.next != null? oneHead.next : twoNode.next;
+        one.next = twoNode.next;
+        two.next = null;
+        head = zeroHead.next;
+        traversal(head);
     }
 
     private static void findPalindrome(Node head) {

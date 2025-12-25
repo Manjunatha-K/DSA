@@ -16,10 +16,4 @@ public class FixedThreadPoolExecuterClass {
     }
 }
 
-class CustomFixedThread implements Runnable {
 
-    @Override
-    public void run() {
-
-    }
-}
